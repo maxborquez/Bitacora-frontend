@@ -1,0 +1,8 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.sweetalert_container{
+    z-index: 9999;
+}
