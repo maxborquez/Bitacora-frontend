@@ -11,9 +11,10 @@ const PerfilAlumno = () => {
         width: "100%",
         display: "flex",
         flexDirection: "column",
+        position: "relative", 
       }}
     >
-      <Grid item>
+      <Grid item sx={{ zIndex: 1000, position: "fixed", width: "100%" }}>
         <HeaderAlumno />
       </Grid>
       <Grid
@@ -23,12 +24,20 @@ const PerfilAlumno = () => {
           display: "flex",
           flexDirection: "row",
           flexGrow: 1,
+          marginTop: "80px", 
         }}
       >
-        <Grid item sx={{ flex: "0 0 auto" }}>
+        <Grid item sx={{ flex: "0 0 auto", position: "fixed", top: "80px", height: "calc(100vh - 80px)", overflowY: "auto" }}>
           <SidebarAlumno />
         </Grid>
-        <Grid item sx={{ flexGrow: 1, marginLeft: "250px" }}>
+        <Grid
+          item
+          sx={{
+            flexGrow: 1,
+            marginLeft: "250px",
+            paddingLeft: "20px", 
+          }}
+        >
           <DataAlumno />
         </Grid>
       </Grid>
