@@ -11,8 +11,7 @@ import PublicRoutes from './router/publicRoutes'
 import PrivateRoutes from './router/privateRoutes'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { ProtectedRoute } from './router/ProtectedRoute'
-import { ProtectedRouteJefe } from './router/protectedJefeRoutes'
-import DashboardJefeCarrera from './pages/JefeDeCarrera/dashboardJefe/DashboardJefeCarrera'
+
 import { ProtectedRouteProfesional } from './router/protectedrouteprofesional'
 import DashboardProfesional from './pages/ProfesionalApoyo/dashboardProfesional/DashboardProfesional'
 import PerfilAlumno from './pages/Alumno/perfil-alumno/PerfilAlumno'
@@ -28,12 +27,6 @@ import RenderBitaAlumno from './pages/Alumno/BitacoraAlumno/ShowBitaAlum/RenderB
 import RenderDetailsAlumno from './pages/Alumno/BitacoraAlumno/DetailsAlumno/RenderDetailsAlumno'
 import EditingBitAlumno from './pages/Alumno/BitacoraAlumno/ModificarAlumno/EditingBitAlumno'
 import InscripcionPractica from './pages/Alumno/inscripcion_practica/inscripcionPractica'
-import BitacorasJefe from './pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/BitacorasJefe'
-import BitacoraRender from './pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/BitacoraRender'
-import DetailsBitacora from './pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/DetailsBitacora'
-import EditingBit from './pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/EditingBit'
-import ArchivosBitacorasJefe from './pages/JefeDeCarrera/archivosbitacoras/archivosbitacoras'
-import ImagenesBitacorasJefe from './pages/JefeDeCarrera/imagenes/imagenesbitacoras'
 import Empresas from './pages/ProfesionalApoyo/dashboardProfesional/empresas'
 import ModificarEmpresa from './pages/ProfesionalApoyo/dashboardProfesional/empresas/modificar_empresa'
 import OfertaPractica from './pages/ProfesionalApoyo/dashboardProfesional/ofertas_practica/ofertapractica'
@@ -50,7 +43,6 @@ import VerArchivos from './pages/ProfesionalApoyo/dashboardProfesional/bitacoras
 import VerImagenes from './pages/ProfesionalApoyo/dashboardProfesional/bitacoras_alumno/verImagenes'
 import VisualizadorDocumento from './pages/Alumno/documentos/visualizadorDocumento'
 import VisualizadorDocumentosInscripcion from './pages/ProfesionalApoyo/dashboardProfesional/estado_practicas/visualizadorDocumentos'
-import VisualizadorDocumentoJefe from './pages/JefeDeCarrera/archivosbitacoras/VerDocumentoJefe'
 import VisualizadorDocumentoBitacora from './pages/Alumno/archivos_bitacora/visualizador_archivo_bitacora'
 
 
@@ -86,16 +78,6 @@ function App() {
                                 <Route path="/modificarbitacoralumno/:id" element={<EditingBitAlumno/>} />
                                 
                             </Route>  
-                            <Route element={<ProtectedRouteJefe />} >
-                                <Route path="/jefedecarrera" element={<DashboardJefeCarrera/>} />
-                                <Route path="/bitacorajefe" element={<BitacorasJefe />} />
-                                <Route path="/showbitacorajefe" element={<BitacoraRender />} />
-                                <Route path="/detailsbitacorajefe/:id" element={<DetailsBitacora/>} />
-                                <Route path="/modificarbitacorajefe/:id" element={<EditingBit/>}/>
-                                <Route path="/archivosbitacorajefe/:id" element ={<ArchivosBitacorasJefe/>} />
-                                <Route path="/imagenesbitacorajefe/:id" element ={<ImagenesBitacorasJefe/>} />
-                                <Route path='/visualizadordocumentojefe/:id' element={<VisualizadorDocumentoJefe/>}/>
-                            </Route>
                             <Route element={<ProtectedRouteProfesional/>}>
                           
                                 <Route path="/dashboard" element={<DashboardProfesional/>} />
