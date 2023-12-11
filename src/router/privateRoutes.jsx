@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import DashboardAlumno from "../pages/Alumno/Dashboard";
-import DashboardJefeCarrera from "../pages/JefeDeCarrera/dashboardJefe/DashboardJefeCarrera";
 import DashboardProfesional from "../pages/ProfesionalApoyo/dashboardProfesional/DashboardProfesional";
 import ModificarEmpresa from "../pages/ProfesionalApoyo/dashboardProfesional/empresas/modificar_empresa";
 import PerfilAlumno from "../pages/Alumno/perfil-alumno/PerfilAlumno";
@@ -26,12 +25,7 @@ import BitAlumnoRender from "../pages/Alumno/BitacoraAlumno/CreateBitacoAlumno/B
 import RenderBitaAlumno from "../pages/Alumno/BitacoraAlumno/ShowBitaAlum/RenderBitaAlumno";
 import RenderDetailsAlumno from "../pages/Alumno/BitacoraAlumno/DetailsAlumno/RenderDetailsAlumno";
 import EditingBitAlumno from "../pages/Alumno/BitacoraAlumno/ModificarAlumno/EditingBitAlumno";
-import BitacorasJefe from "../pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/BitacorasJefe";
-import BitacoraRender from "../pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/BitacoraRender";
-import DetailsBitacora from "../pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/DetailsBitacora";
-import EditingBit from "../pages/JefeDeCarrera/dashboardJefe/BitacoraJefe/EditingBit";
-import ArchivosBitacorasJefe from "../pages/JefeDeCarrera/archivosbitacoras/archivosbitacoras";
-import ImagenesBitacorasJefe from "../pages/JefeDeCarrera/imagenes/imagenesbitacoras";
+
 import AptitudesAlumno from "../pages/ProfesionalApoyo/dashboardProfesional/aptitudes_alumno/AptitudesAlumno";
 import BitacorasAlumno from "../pages/ProfesionalApoyo/dashboardProfesional/bitacoras_alumno/bitacorasAlumno";
 import DetalleBitacora from "../pages/ProfesionalApoyo/dashboardProfesional/bitacoras_alumno/detalleBitacora";
@@ -71,20 +65,7 @@ const PrivateRoutes = ()=>{
             </Routes>
         )
     }
-    
-    if(rol && rol == 2){
-        return (
-            <Routes>
-                <Route path="/dashboard" element={<DashboardJefeCarrera/>} />
-                <Route path="/bitacorajefe" element={<BitacorasJefe />} />
-                <Route path="/showbitacorajefe" element={<BitacoraRender />} />
-                <Route path="/detailsbitacorajefe/:id" element={<DetailsBitacora/>} />
-                <Route path="/modificarbitacorajefe/:id" element={<EditingBit/>}/>
-                <Route path="/archivosbitacora/:id" element ={<ArchivosBitacorasJefe/>} />
-                <Route path="/imagenesbitacora/:id" element ={<ImagenesBitacorasJefe/>} />
-            </Routes>
-        )
-    }
+
     if(rol && rol == 3){
         return (
             <Routes>
