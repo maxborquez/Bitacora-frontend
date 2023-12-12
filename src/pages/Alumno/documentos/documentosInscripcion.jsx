@@ -4,67 +4,74 @@ import { useParams } from "react-router-dom";
 import MostrarArchivos from "./components/mostrar_archivos";
 import SubirConvenios from "./components/subir_convenios";
 import SubirInformes from "./components/subir_informes";
-import { FileCopyOutlined } from "@mui/icons-material";
 import SidebarAlumno from "../../../components/sidebars/sidebarAlumno";
+import { FileCopyOutlined } from "@mui/icons-material";
 
 const DocumentosInscripcion = () => {
   const { id } = useParams();
 
   return (
-    <Grid container sx={{ minHeight: "100vh" }}>
-      <Grid
-        item
-        xs={12}
-        sx={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          width: "100%",
-          zIndex: 1000,
-        }}
-      >
+    <Grid
+      container
+      sx={{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      <Grid item sx={{ zIndex: 1000, position: "fixed", width: "100%" }}>
         <HeaderAlumno />
       </Grid>
       <Grid
+        container
         item
-        xs={12}
-        md={3}
         sx={{
-          position: "fixed",
-          top: "80px",
-          left: 0,
-          width: "250px",
-          overflowY: "auto",
-        }}
-      >
-        <SidebarAlumno />
-      </Grid>
-      <Grid
-        item
-        xs={12}
-        md={9}
-        sx={{
-          marginLeft: "300px",
-          marginTop: "80px",
-          padding: "20px",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center", 
-          justifyContent: "center", 
+          flexDirection: "row",
+          flexGrow: 1,
+          marginTop: "80px",
         }}
       >
-        <Typography variant="h5" sx={{ textAlign: "center", marginBottom: "10px" }}>
-          Documentos <FileCopyOutlined />
-        </Typography>
-        <Grid container spacing={2} sx={{ width: "100%", maxWidth: "800px" }}>
-          <Grid item xs={12} md={6}>
-            <SubirConvenios id={id} />
+        <Grid
+          item
+          sx={{
+            flex: "0 0 auto",
+            position: "fixed",
+            top: "80px",
+            height: "calc(100vh - 80px)",
+            overflowY: "auto",
+          }}
+        >
+          <SidebarAlumno />
+        </Grid>
+
+        <Grid
+          container
+          item
+          sx={{
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+            flexGrow: 1,
+            marginLeft: "250px",
+          }}
+        >
+          <Grid item sx={{ marginBottom: "20px" , marginTop:"20px"}}>
+            <Typography
+              variant="h5"
+              sx={{ textAlign: "center", marginBottom: "10px" }}
+            >
+              Documentos <FileCopyOutlined />
+            </Typography>
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid sx={{ display: "flex", gap: "20px" }}>
+            <SubirConvenios id={id} />
             <SubirInformes id={id} />
           </Grid>
+          <Grid>
+          <MostrarArchivos id={id} />
+          </Grid>
         </Grid>
-        <MostrarArchivos id={id} />
       </Grid>
     </Grid>
   );
