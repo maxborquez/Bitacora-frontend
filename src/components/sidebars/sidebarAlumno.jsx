@@ -1,16 +1,14 @@
-
 import React from "react";
-import { List, ListItem, ListItemText } from "@mui/material";
+import { List, ListItem, ListItemText, Collapse } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useQuery } from "react-query";
 import clienteAxios from "../../helpers/clienteaxios";
-import { Output } from "@mui/icons-material";
+import { Output, ArrowDropDown } from "@mui/icons-material";
 import Swal from "sweetalert2";
 
 const SidebarAlumno = () => {
-
-    const [, setOpen] = React.useState(false);
-    const navigate = useNavigate();
+  const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const id_alumno = localStorage.getItem("id_alumno");
   const comprobar = useQuery("update_inscripcion", async () => {
@@ -18,11 +16,17 @@ const SidebarAlumno = () => {
       id_alumno: id_alumno,
     });
     if (response.status === 200) {
-      localStorage.setItem("id_inscripcion_practica", response.data.id_inscripcion);
+      localStorage.setItem(
+        "id_inscripcion_practica",
+        response.data.id_inscripcion
+      );
       return response.data;
     }
   });
 
+  const handleDropdown = () => {
+    setOpen(!open);
+  };
 
   const logout = () => {
     setOpen(false);
@@ -52,19 +56,46 @@ const SidebarAlumno = () => {
       <ListItem button onClick={() => navigate("/perfil")}>
         <ListItemText sx={{ textAlign: "center" }} primary="Perfil" />
       </ListItem>
-      {comprobar.status === "success" && comprobar.data.inscrito_sistema === true && (
-        <ListItem button onClick={() => navigate(`/showbitalumno/${comprobar.data.id_inscripcion}`)}>
-          <ListItemText sx={{ textAlign: "center" }} primary="Bitácoras" />
-        </ListItem>
-      )}
+      <ListItem button onClick={handleDropdown}>
+        <ListItemText sx={{ textAlign: "center" }} primary="Práctica" /> < ArrowDropDown />
+      </ListItem>
+      <Collapse in={open} timeout="auto" unmountOnExit>
+        <List component="div" disablePadding>
+          <ListItem
+            button
+            onClick={() =>
+              navigate(`/showbitalumno/${comprobar.data.id_inscripcion}`)
+            }
+          >
+            <ListItemText sx={{ textAlign: "center" }} primary="- Bitácora" />
+          </ListItem>
+          <ListItem button onClick={() => navigate("/informe")}>
+            <ListItemText sx={{ textAlign: "center" }} primary="- Informe" />
+          </ListItem>
+          <ListItem button onClick={() => navigate("/evaluacion")}>
+            <ListItemText
+              sx={{ textAlign: "center" }}
+              primary="- Evaluación de Empresa"
+            />
+          </ListItem>
+        </List>
+      </Collapse>
       <ListItem button onClick={() => navigate("/aptitudes")}>
         <ListItemText sx={{ textAlign: "center" }} primary="Aptitudes" />
       </ListItem>
-      <ListItem button onClick={logout} >
-       <ListItemText  sx={{textAlign:"center",display:"flex",flexWrap:"nowrap",justifyContent:"center",alignItems:"center"}}>
-      <p> Cerrar Sesión</p> <Output/>
-       </ListItemText>
-        </ListItem>
+      <ListItem button onClick={logout}>
+        <ListItemText
+          sx={{
+            textAlign: "center",
+            display: "flex",
+            flexWrap: "nowrap",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <p> Cerrar Sesión</p> <Output />
+        </ListItemText>
+      </ListItem>
     </List>
   );
 };
