@@ -23,6 +23,7 @@ WORKDIR /usr/src/app
 # Clonar el repositorio de frontend desde GitHub
 RUN git clone https://github.com/maxborquez/Bitacora-frontend.git .
 COPY .env /usr/src/app/.env
+COPY package.json /usr/src/app/
 
 # Instalar las dependencias de Node.js para tu aplicación
 RUN npm install
