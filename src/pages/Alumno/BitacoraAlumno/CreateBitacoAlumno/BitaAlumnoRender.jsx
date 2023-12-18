@@ -8,14 +8,14 @@ const BitAlumnoRender = () => {
     return (
         <Grid container sx={{ width: '100%', minHeight: '100vh', flexDirection: 'column' }}>
             {/* Header */}
-            <Grid item>
+            <Grid item sx={{ position: 'sticky', top: 0, zIndex: 1000 }}>
                 <HeaderAlumno />
             </Grid>
 
             {/* Main content area */}
             <Grid item container sx={{ flex: 1 }}>
                 {/* Sidebar on the left */}
-                <Grid item xs={3}>
+                <Grid item xs={3} sx={{ position: 'sticky', top: 0, zIndex: 1000 }}>
                     <SidebarAlumno />
                 </Grid>
 
