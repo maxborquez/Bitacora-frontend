@@ -6,24 +6,14 @@ import Swal from "sweetalert2";
 
 const SidebarProfesional = () => {
   const [empresaOpen, setEmpresaOpen] = useState(false);
-  const [practicasOpen, setPracticasOpen] = useState(false);
   const navigate = useNavigate();
 
   const handleEmpresaDropdown = () => {
     setEmpresaOpen(!empresaOpen);
-    // Cerrar la otra lista desplegable al abrir esta
-    setPracticasOpen(false);
-  };
-
-  const handlePracticasDropdown = () => {
-    setPracticasOpen(!practicasOpen);
-    // Cerrar la otra lista desplegable al abrir esta
-    setEmpresaOpen(false);
   };
 
   const logout = () => {
     setEmpresaOpen(false);
-    setPracticasOpen(false);
     Swal.fire("Cerrando sesión", "redireccionando...", "success");
     setTimeout(() => {
       Swal.close();
@@ -47,39 +37,75 @@ const SidebarProfesional = () => {
       <ListItem button onClick={() => navigate("/dashboard")}>
         <ListItemText sx={{ textAlign: "center" }} primary="Inicio" />
       </ListItem>
-      
-      <ListItem button onClick={handleEmpresaDropdown}>
-        <ListItemText sx={{ textAlign: "center" }} primary="Empresas" />
+
+      <ListItem
+        button
+        onClick={handleEmpresaDropdown}
+        sx={{
+          textAlign: "center", // Cambiar color de texto a azul claro si está abierto
+        }}
+      >
+        <ListItemText primary="Empresas" />
         <ArrowDropDown />
       </ListItem>
       <Collapse in={empresaOpen} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          <ListItem button onClick={() => navigate("/empresas")}>
-            <ListItemText sx={{ textAlign: "center" }} primary="- Centros de practica" />
+          <ListItem
+            button
+            onClick={() => navigate("/empresas")}
+            sx={{
+              textAlign: "center",
+              backgroundColor: "#495970", // Cambiar color de fondo a gris claro
+              color: "white", // Cambiar color de texto a negro
+              '&:hover': {
+                backgroundColor: '#425063',
+                color: "white" // Mantener el color de fondo constante en hover
+              },
+            }}
+          >
+            <ListItemText primary="- Centros de práctica" />
           </ListItem>
-          <ListItem button onClick={() => navigate("/editarpractica")}>
-            <ListItemText sx={{ textAlign: "center" }} primary="- Otro" />
+          <ListItem
+            button
+            onClick={() => navigate("/otro")}
+            sx={{
+              textAlign: "center",
+              backgroundColor: "#495970", // Cambiar color de fondo a gris claro
+              color: "white", // Cambiar color de texto a negro
+              '&:hover': {
+                backgroundColor: '#425063',
+                color: "white" // Mantener el color de fondo constante en hover
+              },
+            }}
+          >
+            <ListItemText primary="- Recomendaciones alumnos" />
           </ListItem>
-          {/* Otros elementos específicos para la barra lateral del profesional */}
         </List>
       </Collapse>
-      
-      <ListItem button onClick={handlePracticasDropdown}>
-        <ListItemText sx={{ textAlign: "center" }} primary="Oferta Prácticas" />
-        <ArrowDropDown />
+
+      <ListItem button onClick={() => navigate("/ofertapracticas")}>
+        <ListItemText
+          primary="Oferta Prácticas"
+          sx={{
+            textAlign: "center",
+            display: "flex",
+            flexWrap: "nowrap",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        ></ListItemText>
       </ListItem>
-      <Collapse in={practicasOpen} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          <ListItem button onClick={() => navigate("/nuevapractica")}>
-            <ListItemText sx={{ textAlign: "center" }} primary="- Nueva Práctica" />
-          </ListItem>
-          <ListItem button onClick={() => navigate("/editarpractica")}>
-            <ListItemText sx={{ textAlign: "center" }} primary="- Editar Práctica" />
-          </ListItem>
-          {/* Otros elementos específicos para la barra lateral del profesional */}
-        </List>
-      </Collapse>
-      
+      <ListItem button onClick={() => navigate("/ins_pendientes")}>
+        <ListItemText
+          sx={{ textAlign: "center" }}
+          primary="Inscripciones pendientes"
+        />
+      </ListItem>
+
+      <ListItem button onClick={() => navigate("/evluacion")}>
+        <ListItemText sx={{ textAlign: "center" }} primary="Evaluacion" />
+      </ListItem>
+
       <ListItem button onClick={logout}>
         <ListItemText
           sx={{
