@@ -30,7 +30,7 @@ nvm install 18.16.0
 # Instrucciones de instalacion
 - Entrar al directorio donde se desea instalar y clonar el repositorio con el comando git clone.
 ```bash
-git clone https://github.com/maxborquez/Bitacora-backend.git
+git clone https://github.com/maxborquez/Bitacora-frontend.git
 ```
 - entrar al directorio clonado y ejecutar el comando de instalacion de dependencias.
 ```bash
