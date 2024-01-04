@@ -44,7 +44,7 @@ import VerImagenes from './pages/ProfesionalApoyo/dashboardProfesional/bitacoras
 import VisualizadorDocumento from './pages/Alumno/documentos/visualizadorDocumento'
 import VisualizadorDocumentosInscripcion from './pages/ProfesionalApoyo/dashboardProfesional/estado_practicas/visualizadorDocumentos'
 import VisualizadorDocumentoBitacora from './pages/Alumno/archivos_bitacora/visualizador_archivo_bitacora'
-
+import IngresarEmpresa from "./pages/ProfesionalApoyo/dashboardProfesional/empresas/ingresar_empresa";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +82,7 @@ function App() {
                           
                                 <Route path="/dashboard" element={<DashboardProfesional/>} />
                                 <Route path="/empresas" element={<Empresas/>} />
+                                <Route path="/ingresar_empresa" element={<IngresarEmpresa/>} />
                                 <Route path="/modificarEmpresa/:id" element={<ModificarEmpresa/>} />
                                 <Route path="/ofertapracticas" element={<OfertaPractica/>} />
                                 <Route path="/crearoferta" element={<CrearOferta/>} />

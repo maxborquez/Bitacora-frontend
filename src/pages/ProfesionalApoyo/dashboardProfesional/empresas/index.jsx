@@ -1,10 +1,13 @@
-import { Grid, Box } from "@mui/material";
+import { Grid, Button } from "@mui/material";
 import HeaderProfesional from "../../../../components/headers/headerProfesional";
 import FormularioRegistro from "./formulario_registro";
 import TableEmpresa from "../../../../components/tableEmpresas/tableEmpresa";
 import SidebarProfesional from "../../../../components/sidebars/sidebarProfesional";
+import { useNavigate } from "react-router-dom";
 
 const Empresas = () => {
+  
+  const navigate = useNavigate();
   return (
     <Grid container sx={{ height: "100vh" }}>
       <Grid item xs={12}>
@@ -20,7 +23,11 @@ const Empresas = () => {
 
         {/* Contenido principal a la derecha */}
         <Grid item xs={12} ml={40} container justifyContent="center">
+            
             <FormularioRegistro sx={{ width: '100%', overflowX: 'hidden' }}/>
+            <Grid item>
+              <Button sx={{marginLeft:"10px"}} variant="contained" onClick={()=>navigate("/ingresar_empresa")} >Ingresa empresa page</Button>
+            </Grid>
             <TableEmpresa sx={{ width: '100%', overflowX: 'hidden' }} />
         </Grid>
       </Grid>
