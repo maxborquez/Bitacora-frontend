@@ -101,11 +101,6 @@ const SidebarProfesional = () => {
           primary="Inscripciones pendientes"
         />
       </ListItem>
-
-      <ListItem button onClick={() => navigate("/evluacion")}>
-        <ListItemText sx={{ textAlign: "center" }} primary="Evaluacion" />
-      </ListItem>
-
       <ListItem button onClick={logout}>
         <ListItemText
           sx={{
