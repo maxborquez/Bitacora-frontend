@@ -32,6 +32,7 @@ import DetalleBitacora from "../pages/ProfesionalApoyo/dashboardProfesional/bita
 
 import IngresarEmpresa from "../pages/ProfesionalApoyo/dashboardProfesional/empresas/ingresar_empresa";
 import EmpresaAlumno from "../pages/Alumno/empresa/empresa_alumno";
+import InscripcionesPendientes from "../pages/ProfesionalApoyo/dashboardProfesional/inscripciones_pendientes/ins_pendientes";
 
 import { ProtectedRoute } from "./ProtectedRoute";
 
@@ -74,6 +75,7 @@ const PrivateRoutes = ()=>{
         return (
             <Routes>
                 <Route path="/dashboard" element={<DashboardProfesional/>} />
+                <Route path="/ins_pendientes" element={<InscripcionesPendientes/>} />
                 <Route path="/empresa_alumno" element={<EmpresaAlumno/>} />
                 <Route path="/empresas" element={<Empresas/>} />
                 <Route path="/ingresar_empresa" element={<IngresarEmpresa/>} />
