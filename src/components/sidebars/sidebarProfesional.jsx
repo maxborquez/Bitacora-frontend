@@ -67,7 +67,7 @@ const SidebarProfesional = () => {
           </ListItem>
           <ListItem
             button
-            onClick={() => navigate("/otro")}
+            onClick={() => navigate("/empresa_alumno")}
             sx={{
               textAlign: "center",
               backgroundColor: "#495970", // Cambiar color de fondo a gris claro
